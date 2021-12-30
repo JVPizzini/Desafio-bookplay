@@ -1,0 +1,56 @@
+.main{
+  height:100%;
+
+  max-width: 1120px;
+  margin: 0 auto;
+
+
+  h1{
+  margin-left: 42%;
+
+  }
+}
+
+.container{
+  margin: 20px;
+  padding:20px;
+  box-sizing: border-box;
+
+  justify-content:space-between;
+  font-size: 30px;
+
+  
+  border-radius: 20px;
+  border: 3px solid  var(--bookplay2);
+
+  transition: color 0.2s;
+
+  cursor: pointer;
+  &:hover{
+    background: var(--bookplay2);
+  }
+
+  span{
+    display: flex;
+    margin-top: 20px;
+
+    p{
+      margin-right: 3rem;
+    }
+  }
+}
+
+.infoChallenge{
+  margin: 20px;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background-color: var(--white);
+  height: 7rem;
+  font-size: 20px;
+  color: var(--bookplay2);
+
+  p{
+    margin-top: 10px;
+  }
+}
