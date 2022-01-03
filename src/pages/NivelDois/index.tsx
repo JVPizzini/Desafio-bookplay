@@ -4,20 +4,21 @@ import { GetServerSideProps } from "next"
 import styles from './styles.module.scss'
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import { api } from '../../services/api'
 
-
-export default function NivelDois({ bookList, loadingStatus, notFound}) {
+export default function NivelDois({ bookList, loadingStatus, notFound }) {
 
   const [loading, setLoading] = useState(true);
   // Caso não consiga a conexão, mandar para a page de NotFound
   useEffect(() => {
-    setTimeout(() =>{    
-      setLoading(loadingStatus);}
-      ,2000)
+    setTimeout(() => {
+      setLoading(loadingStatus);
+    }
+      , 2000)
   }, [loadingStatus]);
 
   const router = useRouter();
-  if(notFound) return router.push('/NotFound');  
+  if (notFound) return router.push('/NotFound');
 
   return (
     <>
@@ -28,11 +29,11 @@ export default function NivelDois({ bookList, loadingStatus, notFound}) {
       {loading ?
         (
           <div className={styles.spinner}>
-            <h2>Loading...</h2>            
-            <BeatLoader 
-            size={30} 
-            color={'#FFFF '/* 'white' */} 
-            loading={loading} 
+            <h2>Loading...</h2>
+            <BeatLoader
+              size={30}
+              color={'#FFFF '/* 'white' */}
+              loading={loading}
             />
           </div>
         )
@@ -63,21 +64,25 @@ export default function NivelDois({ bookList, loadingStatus, notFound}) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  
-  const res = await fetch('https://bmain.bookplay.com.br/parceiros/6BB6F620/recrutamento/top10/acessos');
-  const { data } = await res.json();
 
-  if (!data) {
+  // const res = await fetch('https://bmain.bookplay.com.br/parceiros/6BB6F620/recrutamento/top10/acessos');
+  try {
+    const res = await api.get('parceiros/6BB6F620/recrutamento/top10/acessos')
+
+    const { data } = res.data;
+    // console.log(data);
+
     return {
-      notFound: true,
+      props:
+      {
+        bookList: data,
+        loadingStatus: false,
+      }
     }
-  }
 
-  return  {
-    props:
-    {
-      bookList: data,
-      loadingStatus: false,
+  } catch (error) {
+        return {
+      notFound: true,
     }
   }
 }

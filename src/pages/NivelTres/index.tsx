@@ -4,7 +4,7 @@ import { GetServerSideProps } from "next"
 import styles from './styles.module.scss'
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { RadioGroup } from '../../components/RadioGroup';
+import { api } from '../../services/api';
 
 
 export default function NivelDois({ bookList, loadingStatus, notFound }) {
@@ -25,6 +25,10 @@ export default function NivelDois({ bookList, loadingStatus, notFound }) {
     const link = window.open(`https://bookplay.com.br/conteudo/${codLivro}`, '_blank');
     console.log(codLivro)
     console.log(link)
+  }
+
+  function handleFilterItems(event){
+   console.log(event.target.value)
   }
 
   return (
@@ -49,11 +53,11 @@ export default function NivelDois({ bookList, loadingStatus, notFound }) {
           <div className={styles.infoChallenge}>
             <h3> ➡️  Terceiro teste : </h3>
             <p>Crie um seletor da maneira que achar melhor (rádio, combobox, etc).
-               Envie o código correspondente na URL da requisição. Linkar produtos 
+              Envie o código correspondente na URL da requisição. Linkar produtos
             </p>
           </div>
           <h1>🧾 LISTA </h1>
-          <RadioGroup/>
+
           {
             bookList.map(book => (
               <div
@@ -61,20 +65,17 @@ export default function NivelDois({ bookList, loadingStatus, notFound }) {
                 className={styles.container}
               >
                 <a onClick={() => { handledItemsLink(book.CodLivro) }} >
-                  {/* <button onClick={()=>{handledItemsLink(book.CodLivro)} }> */}
                   <label htmlFor="
                   ">
 
                   </label>
-                    <p>Nome: {book.Nome} </p>
-                  
+                  <p>Nome: {book.Nome} </p>
+
                   <span>
                     <p>CodConteudo: {book.CodConteudo}</p>
                     <p>CodLivro: {book.CodLivro}</p>
                   </span>
-                  {/* </button> */}
                 </a>
-                {/* <button type='button' onClick={() =>alert('teste')}> teste</button> */}
               </div>
             ))
           }
@@ -86,20 +87,24 @@ export default function NivelDois({ bookList, loadingStatus, notFound }) {
 
 export const getServerSideProps: GetServerSideProps = async () => {
 
-  const res = await fetch('https://bmain.bookplay.com.br/parceiros/6BB6F620/recrutamento/top10/acessos');
-  const { data } = await res.json();
 
-  if (!data) {
+  try {
+    const res = await api.get('parceiros/6BB6F620/recrutamento/top10/acessos')
+
+    const { data } = res.data;
+    // console.log(data);
+
     return {
-      notFound: true,
+      props:
+      {
+        bookList: data,
+        loadingStatus: false,
+      }
     }
-  }
 
-  return {
-    props:
-    {
-      bookList: data,
-      loadingStatus: false,
+  } catch (error) {
+        return {
+      notFound: true,
     }
   }
 }
