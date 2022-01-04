@@ -1,0 +1,27 @@
+.main{
+  height: 2rem;
+
+  margin-top: 2rem;
+  text-align: center;
+
+  font-weight: bold;
+  font-size: 2rem;
+
+}
+
+.comboBox{
+  border-radius: 2rem;
+  border: solid 1px var(--bookplay2);
+
+  background: var(--bookplay2);
+  color: var(--gray-text);
+
+  font-weight: bold;
+  font-size: 1.5rem;
+
+  margin-left: 1.5rem;
+  text-align: center;
+
+  width: 15rem;
+
+}
