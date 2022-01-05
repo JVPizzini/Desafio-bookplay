@@ -11,10 +11,9 @@ export default function Custom404() {
   const {url} = useContext(currentUrl)
   const urlReload = useRef('')
 
- // COLOCAR O LOCALSTORAGE DENTRO DAS PAGES!!!
   useEffect(() => {
   
-    urlReload.current = localStorage.getItem('reload')
+    urlReload.current = localStorage.getItem('url')
   },[])
 
   return (

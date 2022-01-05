@@ -14,6 +14,7 @@ function handleItemsLink(codLivro) {
 
 export default function NivelTres(/* { bookList, loadingStatus } */) {
   
+  window.localStorage.setItem('url','/NivelTres')
   const router = useRouter();
   const [codItem, setCodItem] = useState('');
   const [itemList, setItemList] = useState([]);
@@ -55,8 +56,8 @@ export default function NivelTres(/* { bookList, loadingStatus } */) {
       <div className={styles.main} >
         <div className={styles.infoChallenge}>
           <h3> ➡️ 3º challenge : </h3>
-          <p>Crie um seletor da maneira que achar melhor (rádio, combobox, etc).
-            Envie o código correspondente na URL da requisição. Linkar produtos
+          <p>Create a selector in whatever way you like (radio, combobox, etc).
+            Submit the corresponding code in the request URL. link products
           </p>
         </div>
         <h1>🧾 LIST </h1>

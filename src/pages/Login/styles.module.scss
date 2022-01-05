@@ -18,32 +18,52 @@
   align-items: center;
   text-align: center;
 
-  padding-top: 150px;
+  padding-top: 80px;
 
-  gap: 16px;
+  gap: 3rem;
+   
+  a{
+    color: var(--bookplay2);
+    font-size: 20px;
+    text-decoration: underline;
+  }
 
   button{
-    margin-top: 1rem;
+    margin-top: 2rem;
     width: 40%;
-    height: 50px;
+    height: 80px;
     border-radius: 8px;
     box-shadow: 0 0 0 0;
     border: none;
+    font-size:30px;
+    color: var(--bookplay2);
+
+    
+    transition: 0.2s;
+
+    &:hover{
+      color: #ffff;
+      background: var(--bookplay2);
+    }
   }
 
   input{
-    height: 50px;
+    height: 80px;
     border-radius: 8px;
     padding: 0 16px;
     width: 70%;
     box-shadow: 0 0 0 0;
     border: none;
     outline: 0;
-
+    background: var(--bookplay2);
+    color: #ffff;
     font-size:30px;
 
   }
 
+  ::placeholder{
+    color: #ffff;
+  }
 }
 
 .login{

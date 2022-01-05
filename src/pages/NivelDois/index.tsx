@@ -5,9 +5,12 @@ import styles from './styles.module.scss'
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { api, SearchList } from '../../services/api'
+import { Header } from '../../components/Header';
 
 export default function NivelDois(/* { bookList, loadingStatus } */) {
-  
+
+  window.localStorage.setItem('url', '/NivelDois')
+
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [itemList, setItemList] = useState([]);
@@ -17,7 +20,7 @@ export default function NivelDois(/* { bookList, loadingStatus } */) {
     setLoading(true);
 
     SearchList('')
-    .then(result => setItemList(result))
+      .then(result => setItemList(result))
       .catch(
         result => {
           router.push('/404');
@@ -31,7 +34,7 @@ export default function NivelDois(/* { bookList, loadingStatus } */) {
     return () => { clearTimeout(time); }
 
   }, []);
-  
+
   return (
     <>
       <Head>
@@ -53,7 +56,9 @@ export default function NivelDois(/* { bookList, loadingStatus } */) {
         (<div className={styles.main} >
           <div className={styles.infoChallenge}>
             <h3> ➡️  2º challenge : </h3>
-            <p>Vamos lá, utilize a seguinte URL para ter acesso aos nossos top 10 mais acessados do momento!
+            <p>
+              Come on, use the following URL to access our top 10 most accessed at the moment!
+              Insert a preloader and handle the error if the request fails.
               https://bmain.bookplay.com.br/parceiros/6BB6F620/recrutamento/top10/acessos
             </p>
           </div>

@@ -14,7 +14,7 @@ export function ReloadButton({ name, link }: ButtonProps) {
   const router = useRouter();
 
   function handleLink() {
-   router.push(link)
+   router.push( window.localStorage.getItem('url'))
   }
 
   return (

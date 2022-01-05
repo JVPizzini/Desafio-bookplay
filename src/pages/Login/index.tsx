@@ -5,9 +5,11 @@ export default function Login() {
     <div className={styles.main}>
       <form >
         <div className={styles.context}>
-          <input type="text" />
-          <input type="text" />
-            <button>teste</button>
+          <input type="text" placeholder="Login"/>
+          <input type="text" placeholder="Password"/>
+            <button>Sing In</button>
+            
+          <a href="">Need an account?</a>
           <div>
           </div>
 

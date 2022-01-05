@@ -3,6 +3,8 @@ import Head from "next/head"
 import styles from './styles.module.scss'
 
 export default function NivelUm({ bookList }) {
+  
+  window.localStorage.setItem('url','/NivelUm')
 
   return (
     <>
@@ -13,7 +15,7 @@ export default function NivelUm({ bookList }) {
       <div className={styles.main}>
         <div className={styles.infoChallenge}>
           <h3> ➡️  1º Challenge </h3>
-          <p>Uma página web para listar os top 10 títulos mais acessados do Bookplay.</p>
+          <p>A webpage to list the top 10 most accessed Bookplay titles.</p>
         </div>
         <h1>🧾 List </h1>
         {bookList.map(book => (

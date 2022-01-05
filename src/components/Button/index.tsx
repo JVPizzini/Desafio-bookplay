@@ -15,7 +15,6 @@ export function Button({ name, link }: ButtonProps) {
 
   function handleLink() {
     setUrl(link)
-    window.localStorage.setItem('reload',link)
     router.push(link)
   }
 
