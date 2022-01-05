@@ -1,30 +1,36 @@
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 import styles from './styles.module.scss'
-import React, { useContext } from 'react'
+import { useContext } from 'react';
 import { currentUrl } from '../../useContext';
 
-interface ButtonProps  {
+interface ButtonProps {
   name: string,
   link: string,
 }
 
-export function Button({ name, link }: ButtonProps) {
+export function ReloadButton({ name, link }: ButtonProps) {
 
   const router = useRouter();
-  const {setUrl} = useContext(currentUrl)
 
   function handleLink() {
-    setUrl(link)
-    window.localStorage.setItem('reload',link)
-    router.push(link)
+   router.push(link)
   }
 
   return (
     <button
+
       type="button"
       className={styles.button}
       onClick={handleLink}
     >
+      <Image
+        src='https://www.freeiconspng.com/thumbs/load-icon-png/load-icon-png-10.png'
+        alt="botaoRedondo"
+        width={40}
+        height={40}
+
+      />
       {name}
     </button>
   )

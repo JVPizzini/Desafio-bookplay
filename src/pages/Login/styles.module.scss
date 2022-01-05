@@ -1,0 +1,51 @@
+.main{
+  height: 100vh;
+  background: var(--bookplay2);
+  padding-top: 100px;
+
+}
+
+.context{
+  background: var(--bookplay);
+  height: 500px;
+  max-width: 600px;
+  
+  margin: 0 auto;
+  border-radius: 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  padding-top: 150px;
+
+  gap: 16px;
+
+  button{
+    margin-top: 1rem;
+    width: 40%;
+    height: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 0 0;
+    border: none;
+  }
+
+  input{
+    height: 50px;
+    border-radius: 8px;
+    padding: 0 16px;
+    width: 70%;
+    box-shadow: 0 0 0 0;
+    border: none;
+    outline: 0;
+
+    font-size:30px;
+
+  }
+
+}
+
+.login{
+  height: 40px;
+}

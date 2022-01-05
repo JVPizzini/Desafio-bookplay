@@ -1,19 +1,22 @@
 .headerContainer{
 
   height: 8rem;
+  padding: 0px 150px;
   border-bottom: 3px solid var(--gray-100);
-  
+  display: flex;
+  justify-content:space-between;
 }
 
 .headerContext{
+
   max-width: 1120px;
   height: 8rem;
-  margin: 0 auto;
+  // margin: 0 auto;
   padding: 0 2rem;
   
   display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content:space-between;
 
 
   img{
@@ -68,4 +71,30 @@
   }
 }
 
+.Login{
+  
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
 
+  width: 15rem;
+  height: 4rem;
+
+  background: var(--bookplay2);
+  border-radius: 3rem;
+  
+  margin-top: 2rem;
+
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  
+  span{
+    border-radius: 3rem;
+    background: rgb(2, 255, 149);
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+}

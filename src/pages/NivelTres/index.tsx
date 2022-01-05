@@ -3,8 +3,9 @@ import BeatLoader from "react-spinners/BeatLoader";
 import styles from './styles.module.scss'
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { ItemsListType, SearchList } from '../../services/api';
+import { api, ItemsListType, SearchList } from '../../services/api';
 import { ComboListBox } from '../../components/ComboListBox';
+import { GetServerSideProps } from 'next';
 // import { getRedis, setRedis } from '../../redisConfig';
 
 function handleItemsLink(codLivro) {
@@ -12,49 +13,25 @@ function handleItemsLink(codLivro) {
 }
 
 export default function NivelTres(/* { bookList, loadingStatus } */) {
-
+  
   const router = useRouter();
   const [codItem, setCodItem] = useState('');
   const [itemList, setItemList] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [teste, setTeste] = useState('');
+  
   // Caso não consiga a conexão, mandar para a page de NotFound
-
+  
   function handleSelectItem(value) {
-    // console.log(value);
     setCodItem(value);
   }
-
-  // async function cacheList() {
-
-  //   const userRedis = await getRedis(`lista${codItem}`);
-
-  //   if (userRedis) {
-
-  //     setItemList(userRedis)
-
-  //   } else {
-
-  //     SearchList(codItem)
-  //       .then(result => setItemList(result))
-  //       .then(result => setRedis(`lista${codItem}`, JSON.stringify(result)))
-  //       .catch(
-  //         result => {
-  //           router.push('/404');
-  //         }
-  //       );
-  //   }
-  // }
-
+  
+  
   useEffect(() => {
 
     setLoading(true);
 
-    // cacheList()
-
     SearchList(codItem)
       .then(result => setItemList(result))
-      // .then(result => setRedis(`lista${codItem}`, JSON.stringify(result)))
       .catch(
         result => {
           router.push('/404');
@@ -72,17 +49,18 @@ export default function NivelTres(/* { bookList, loadingStatus } */) {
   return (
     <>
       <Head>
-        <title>Desafio | Nível 3 </title>
+        <title>Challenge | Lavel 3 </title>
       </Head>
 
       <div className={styles.main} >
         <div className={styles.infoChallenge}>
-          <h3> ➡️  Terceiro teste : </h3>
+          <h3> ➡️ 3º challenge : </h3>
           <p>Crie um seletor da maneira que achar melhor (rádio, combobox, etc).
             Envie o código correspondente na URL da requisição. Linkar produtos
           </p>
         </div>
-        <h1>🧾 LISTA </h1>
+        <h1>🧾 LIST </h1>
+        <ComboListBox name="ListItemsType" list={ItemsListType} getItem={handleSelectItem} />
         {loading ?
           (
             <div className={styles.spinner}>
@@ -97,7 +75,6 @@ export default function NivelTres(/* { bookList, loadingStatus } */) {
           :
           (
             <>
-              <ComboListBox name="ListItemsType" list={ItemsListType} getItem={handleSelectItem} />
               {itemList &&
                 itemList.map(book => (
                   <div
@@ -120,35 +97,3 @@ export default function NivelTres(/* { bookList, loadingStatus } */) {
     </>
   )
 }
-
-// export const getServerSideProps: GetServerSideProps = async () => {
-
-//   // const userRedis = await getRedis('lista');
-//   // console.log(`TEEEEESTE ${userRedis}`)
-
-//   // if(userRedis){
-//   //   return
-//   // }
-
-//   try {
-
-//     const res = await api.get('parceiros/6BB6F620/recrutamento/top10/acessos')
-//     const { data } = res.data;
-//     //  console.log(data);
-
-//     //  setRedis('lista',JSON.stringify(data));
-
-//     return {
-//       props:
-//       {
-//         bookList: data,
-//         loadingStatus: false,
-//       }
-//     }
-
-//   } catch (error) {
-//     return {
-//       notFound: true,
-//     }
-//   }
-// }

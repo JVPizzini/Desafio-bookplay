@@ -7,15 +7,15 @@ export default function NivelUm({ bookList }) {
   return (
     <>
       <Head>
-        <title>Desafio | Nível 1  </title>
+        <title>Challenge | Level 1  </title>
       </Head>
 
       <div className={styles.main}>
         <div className={styles.infoChallenge}>
-          <h3> ➡️  Primeiro teste : </h3>
+          <h3> ➡️  1º Challenge </h3>
           <p>Uma página web para listar os top 10 títulos mais acessados do Bookplay.</p>
         </div>
-        <h1>🧾 LISTA </h1>
+        <h1>🧾 List </h1>
         {bookList.map(book => (
           <div key={book.CodLivro} className={styles.container}>
             <p>Nome: {book.Nome} </p>

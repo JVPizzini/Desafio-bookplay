@@ -10,10 +10,15 @@ type ComboBoxProps = {
 
 export function ComboListBox({ name, list, getItem }: ComboBoxProps) {
 
+  function handleCodList(event){
+    return getItem(event.target.value)
+  }
+
+
   return (
     <div className={styles.main} >
       <label htmlFor="itemsType" >what do you prefer to see today? </label>
-      <select name={name} id={name} className={styles.comboBox} onChange={(e) => getItem(e.target.value)} >
+      <select name={name} id={name} className={styles.comboBox} onChange={handleCodList/* (e) => getItem(e.target.value) */} >
         {list.map(item => (
           <option key={item[1]} value={item[0]}>{item[1]} </option>
         ))}

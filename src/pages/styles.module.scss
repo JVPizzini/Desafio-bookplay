@@ -1,0 +1,50 @@
+.main{
+  background: var(--bookplay2);
+  height:100vh;
+  padding-top: 100px;
+
+  img{
+    cursor: pointer; 
+  
+  }
+
+}
+
+.info{
+
+  @media (max-width: 1680px){
+    width: 70%;
+    height: 500px;
+  }
+
+  height: 400px;
+  background: var(--bookplay);
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 2rem;
+  padding: 20px;
+
+  h1,h3{
+    text-align: center;
+  }
+   
+  ol{
+    margin: 20px 30px ;
+    font-size: 1.5rem;
+    li + li{
+      margin-top: 10px;
+    }
+  }
+
+  
+}
+.imagens{
+  margin: 20px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  
+ 
+}
