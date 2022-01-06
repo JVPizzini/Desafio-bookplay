@@ -11,13 +11,11 @@
 
   max-width: 1120px;
   height: 8rem;
-  // margin: 0 auto;
   padding: 0 2rem;
   
   display: flex;
   align-items: center;
   justify-content:space-between;
-
 
   img{
     cursor: pointer;
@@ -92,9 +90,23 @@
   
   span{
     border-radius: 3rem;
-    background: rgb(2, 255, 149);
+    background: #02ff95;
     width: 1.5rem;
     height: 1.5rem;
   }
+
+  
+  @media (max-width: 1450px){
+   
+    padding: 0 40px;
+ 
+   }
+
+   @media (max-width: 1220px){
+   
+    padding: 0 25px;
+    font-size: 18px;
+ 
+   }
 
 }
