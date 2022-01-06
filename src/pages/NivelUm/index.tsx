@@ -1,10 +1,9 @@
 import { GetServerSideProps } from "next"
 import Head from "next/head"
+import { useEffect } from "react"
 import styles from './styles.module.scss'
 
 export default function NivelUm({ bookList }) {
-  
-  window.localStorage.setItem('url','/NivelUm')
 
   return (
     <>

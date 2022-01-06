@@ -5,17 +5,16 @@ import styles from './styles.module.scss'
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { api, SearchList } from '../../services/api'
-import { Header } from '../../components/Header';
 
 export default function NivelDois(/* { bookList, loadingStatus } */) {
-
-  window.localStorage.setItem('url', '/NivelDois')
 
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [itemList, setItemList] = useState([]);
 
   useEffect(() => {
+
+    window.localStorage.setItem('url', '/NivelDois')  
 
     setLoading(true);
 
@@ -33,7 +32,8 @@ export default function NivelDois(/* { bookList, loadingStatus } */) {
 
     return () => { clearTimeout(time); }
 
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[]);
 
   return (
     <>

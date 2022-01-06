@@ -1,30 +1,39 @@
-import { useState } from 'react';
-import { api } from '../../services/api';
-import styles from './styles.module.scss'
+import { useState } from "react";
+import { api } from "../../services/api";
+import styles from "./styles.module.scss";
 
 type ComboBoxProps = {
-  name: string,
-  list: string[][],
-  getItem: (value: string) => void
-}
+  name: string;
+  list: string[][];
+  getItem: (value: string) => void;
+};
 
 export function ComboListBox({ name, list, getItem }: ComboBoxProps) {
-
-  function handleCodList(event){
-    return getItem(event.target.value)
+  function handleCodList(event) {
+    return getItem(event.target.value);
   }
 
-
   return (
-    <div className={styles.main} >
-      <label htmlFor="itemsType" >what do you prefer to see today? </label>
-      <select name={name} id={name} className={styles.comboBox} onChange={handleCodList/* (e) => getItem(e.target.value) */} >
-        {list.map(item => (
-          <option key={item[1]} value={item[0]}>{item[1]} </option>
+    <div className={styles.main}>
+      <label htmlFor="itemsType">what do you prefer to see today? </label>
+      <select
+        name={name}
+        id={name}
+        className={styles.comboBox}
+        onChange={handleCodList}
+        defaultValue=""
+      >
+        <option value="" disabled>
+          Selecione...
+        </option>
+        {list.map((item) => (
+          <option key={item[1]} value={item[0]}>
+            {item[1]}{" "}
+          </option>
         ))}
       </select>
     </div>
-  )
+  );
 }
 
 /*
