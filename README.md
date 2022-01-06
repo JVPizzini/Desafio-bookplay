@@ -4,8 +4,8 @@
        Realizado por João vitor
   ##
 
-    Desafio consiste em 4 níveis, onde cada um possui seu grau  de  dificuldade.
-    O projeto onde se encontram as resoluções de cada nível foi   realizado com as seguintes ferramentas.
+  Desafio consiste em 4 níveis, onde cada um possui seu grau  de  dificuldade.
+  O projeto onde se encontram as resoluções de cada nível foi   realizado com as seguintes ferramentas.
 
   * Next.js (framework da biblioteca React)
   * Axios
@@ -13,7 +13,7 @@
   * Github
   * Typescript
 
-    Obs: Foi utilizado o framework Next.js pois essa ferramenta dispensa algumas pré configurações do CRA (Create React App), facilitando nas rotas entre páginas e ainda oferece     um SSR (Server Side Rendering) que possibilita a utilização de um servidor próprio para manipular  dados no Back-end.
+  Obs: Foi utilizado o framework Next.js pois essferramenta dispensa algumas pré configurações do CR(Create React App), facilitando nas rotas entre páginas ainda oferece     um SSR (Server Side Rendering) qupossibilita a utilização de um servidor próprio parmanipular  dados no Back-end.
   # 
 
   # Aplicação
@@ -22,8 +22,8 @@
   * aplicação foi toda desenvolvida em inglês (pelo menos essa foi a intenção 😳)
 
   >_app
-  * No arquivo _app foi adicionado o componente <Header/> tornando-se padrão na tela e evitando   carregamento  desnecessário.
-    * Também foi adicionado um useState para salvar url da tela atual. 
+  * No arquivo _app foi adicionado o componente < Header/> tornando-se padrão na tela e evitando   carregamento  desnecessário.
+  * Também foi adicionado um useState para salvar url da tela atual. 
 
   >index.tsx
   * Adicionado um breve texto explicando cada desafio
