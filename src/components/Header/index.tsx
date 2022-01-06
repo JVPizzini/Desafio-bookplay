@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export function Header() {
 
-  let name = "joao vitor pizzini"
+  let name = "João Vitor Pizzini"
 
   if (name.length > 10) {
     name = name.substring(0, 10) + ' ...'

@@ -4,6 +4,8 @@
        Realizado por João vitor
   ##
 
+  🌐 _[acesse o site do projeto](https://desafio-bookplay.vercel.app/)_
+
   Desafio consiste em 4 níveis, onde cada um possui seu grau  de  dificuldade.
   O projeto onde se encontram as resoluções de cada nível foi   realizado com as seguintes ferramentas.
 
