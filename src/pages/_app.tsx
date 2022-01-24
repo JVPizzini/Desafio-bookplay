@@ -8,7 +8,7 @@ import { currentUrl } from '../useContext';
 
 //Styles
 import '../styles/global.scss'
-
+ 
 
 function MyApp({ Component, pageProps }: AppProps) {
 
